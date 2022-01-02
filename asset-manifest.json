@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/reactjs/static/css/main.b8377b05.css",
+    "main.js": "/reactjs/static/js/main.c9ac1f75.js",
+    "static/js/787.27d760c9.chunk.js": "/reactjs/static/js/787.27d760c9.chunk.js",
+    "static/media/FunkoPopCharmander.jpg": "/reactjs/static/media/FunkoPopCharmander.bfb60b72b19c982fff9f.jpg",
+    "static/media/FunkoPopSquirtle.jpg": "/reactjs/static/media/FunkoPopSquirtle.e3743f0bc7297094a9dc.jpg",
+    "static/media/FunkoPopSilverPikachu.jpg": "/reactjs/static/media/FunkoPopSilverPikachu.1cf650c8d1b24c706359.jpg",
+    "static/media/FunkoPopBulbasaurSilver.jpg": "/reactjs/static/media/FunkoPopBulbasaurSilver.04df5b85ad410066818b.jpg",
+    "static/media/FiguraArticuladaVenusaur.jpg": "/reactjs/static/media/FiguraArticuladaVenusaur.c9bd21f5d43623884654.jpg",
+    "static/media/DieCastPokeball.jpg": "/reactjs/static/media/DieCastPokeball.c420fe56f648cc625dc9.jpg",
+    "static/media/FiguraArticuladaDragonite.jpg": "/reactjs/static/media/FiguraArticuladaDragonite.d793f0d82378fc96dfc4.jpg",
+    "static/media/DieCastSuperball.jpg": "/reactjs/static/media/DieCastSuperball.bf5dc09b03d47f42262f.jpg",
+    "index.html": "/reactjs/index.html",
+    "main.b8377b05.css.map": "/reactjs/static/css/main.b8377b05.css.map",
+    "main.c9ac1f75.js.map": "/reactjs/static/js/main.c9ac1f75.js.map",
+    "787.27d760c9.chunk.js.map": "/reactjs/static/js/787.27d760c9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8377b05.css",
+    "static/js/main.c9ac1f75.js"
+  ]
+}
