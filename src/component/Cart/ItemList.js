@@ -2,7 +2,7 @@ import React from 'react'
 import Item from './Item'
 import Row from 'react-bootstrap/Row'
 import  {useState,useEffect}  from 'react';
-import { getProd } from '../../helpers/dataBase';
+import { getProd } from '../../helpers/mock';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 export default function ItemList() {
