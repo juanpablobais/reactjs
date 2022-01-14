@@ -3,10 +3,10 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import ItemCount from '../ItemCount';
 
- function Item({item}) {
+ function Item({item, id}) {
 
     return (
-        <div className='col-md-4'>
+        <div className='col-md-3'>
          
             <Card  key={item.id} style={{ width: '300px', hight: '500px'}}>
                 <Card.Header className="text-dark">{item.nombre}</Card.Header>
@@ -15,7 +15,7 @@ import ItemCount from '../ItemCount';
                         <Card.Title className="text-secondary">$ {item.precio}</Card.Title>
                     </Card.Body>
                     <Card.Footer className="text-muted">
-                    <Button variant="outline-primary">Details</Button>
+                    <Button to={`/item/${id}`} variant="outline-primary">Details</Button>
                     </Card.Footer>
                     <ItemCount stock= {item.stock}/>
                 </Card>

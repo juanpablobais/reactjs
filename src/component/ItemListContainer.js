@@ -6,6 +6,7 @@ export default function ItemListContainer({usuario}) {
             <p>
                 Welcome {usuario}!
             </p>
+            <img src="./assets/wallpoke.jpg"/>
         </div>
     )
 }
