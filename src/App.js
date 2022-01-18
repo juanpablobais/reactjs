@@ -1,31 +1,30 @@
-import './App.css';
-import NavMenu from './component/NavMenu';
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Home from './component/Pages/Home'
-import Toys from './component/Pages/Toys'
-import Cards from './component/Pages/Cards'
+import NavMenu from './component/NavMenu/NavMenu';
+import ItemListContainer from './ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './component/Cart/Cart';
+import Form from './component/Cart/Form';
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {
 
-    <Router>
-      <NavMenu/>
-      <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/Toys" element={<Toys/>}/>
-        <Route exact path="/Cards" element={<Cards/>}/>
-      </Routes>
-    </Router>
+    return (
+        <div className='hooks-app' >
+            <BrowserRouter>
+                <NavMenu />
+                <Routes>
+                    <Route exact path='/' element={<ItemListContainer />} />
+                    <Route exact path='/category' element={<ItemListContainer />} />
+                    <Route exact path='/category/:categoryId' element={<ItemListContainer />} />
+                    <Route exact path='/detail/:detailId' element={<ItemDetailContainer />} />
+                    <Route exact path='/cart' element={<Cart />} />
+                    <Route exact path='/form' element={<Form />} />
+                </Routes>
+            </BrowserRouter>
 
-      <header className="App-header">
-        <Container fluid className= 'mx-auto justify-content-center'>
-        </Container>
-      </header>
-    </div>
-  );
+        </div >
+    )
 }
 
-export default App;
+export default App

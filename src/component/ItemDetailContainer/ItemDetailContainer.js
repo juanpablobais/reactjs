@@ -1,22 +1,22 @@
-import { useState , useEffect } from 'react'
-import { getFetch } from '../../helpers/mock'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { getMock } from '../../helpers/mock'
 import ItemDetail from './ItemDetail'
 
+const ItemDetailContainer = () => {
+    const [product, setProduct] = useState({})
 
-function ItemDetailContainer() {
-
-    const [producto, setProducto] = useState({})
+    const { detailId } = useParams()
 
     useEffect(() => {
-        
-        getFetch
-        .then(resp => setProducto(resp.find(prod => prod.id === '1')))
+        getMock
+            .then(res => setProduct(res.find(prod => prod.id === detailId)))
 
-    }, [])
+    }, [detailId])
 
     return (
-        <div>
-            <ItemDetail producto={producto} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <ItemDetail product={product} />
         </div>
     )
 }

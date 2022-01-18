@@ -9,7 +9,8 @@ const ItemCount = ({stock}) => {
     const [count, setCount]= useState(1)
     const [newstock, setNewStock]= useState(stock)
 
-    //Funcion para sumar cantidades
+
+    //Suma
     const addCount=()=>{
         if(count>=stock){
         console.log("All products sold")
@@ -19,7 +20,7 @@ const ItemCount = ({stock}) => {
         setNewStock(newstock-1)}
     }
 
-    //Funcion para restar cantidades
+    //Resta
     const restCount=()=>{
         if(count<=0){
             console.log("Cart is empty")

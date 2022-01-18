@@ -1,23 +1,44 @@
 import React from 'react'
-import ItemCount from '../ItemListContainer/ItemCount'
-import './ItemDetail.css';
+import { useState } from 'react'
+import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import ItemCount from '../ItemCount'
 
-function ItemDetail({ producto }) {
+const ItemDetail = ({ product }) => {
+
+    const [show, setShow] = useState(true)
+
+    const { imagen, desc, name, precio, categoria, stock } = product
+
+    const onAdd = (contador) => {
+        setShow(false)
+        alert(`${contador}`)
+    }
 
     return (
-        <div className='divDetail'>
-            <img src={producto.img} alt={producto.nombre} className='imgDetail'/>
-            <div>
-                <h2>{producto.nombre}</h2>
-                <p className='pDescripcionDetail'>{producto.descripcion}</p>
-                <h4 className='precioDetail'>Precio: ${producto.precio}</h4>
-                <ItemCount />
-                <div className='divButtonAgregarAlCarritoDetail'>
-                    <button className='buttonAgregarAlCarritoDetail'>Agregar al carrito</button>
-                </div>
-            </div>
-            
+        <div>
+            <Card style={{ width: '18rem', margin: '20px' }}>
+                <Card.Img variant="top" src={imagen} style={{ minHeight: '300px' }} />
+                <Card.Body>
+                    <Card.Title>{name}</Card.Title>
+                    <Card.Text>
+                        {desc}
+                        categoria:{categoria}
+                    </Card.Text>
+                    <Card.Text>
+                        {precio}
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+
+            {show ? <ItemCount stock={stock} onAdd={onAdd} /> :
+                <div>
+                    <Link to='/cart'><button>Terminar la Compra</button></Link>
+                    <Link to='/'><button>Seguir Comprando</button></Link>
+                </div>}
+
         </div>
+
     )
 }
 
