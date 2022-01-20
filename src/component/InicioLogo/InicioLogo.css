@@ -1,0 +1,19 @@
+.imglogo{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vw;
+    margin-bottom: 10vw;
+}
+.linkCatInicio{
+    text-decoration: none;
+    color: white;
+}
+.linkCatInicio:hover{
+    text-decoration: none;
+    color: rgb(117, 149, 255);
+}
+.inputsUser{
+    display: flex;
+    justify-content: center;
+}
