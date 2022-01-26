@@ -1,36 +1,49 @@
-import { createContext,  useState } from "react";
-export const CartContext = createContext([])
+import { useState, useContext } from "react";
+import { createContext } from "react";
 
-export const CartContextProvider = ({children}) => {
-    const [cartList,setCarList]= useState()
-    
-    function agregarAlCarrito(itemAgregar){
-        setCarList({itemAgregar})
-    }
+const CartContext = createContext([])
 
+export function useCartContext () {
+    return useContext(CartContext)
+}
 
-    function agregarAlCarrito(item){
-        const index = cartList.findIndex(i => i.id === item.id)
-        if (index > -1){
-            const cantAnterior = cartList[index].cantidad
-            let cantAgregada = cantAnterior + item.cantidad
-            cartList[index].cantidad = cantAgregada
-            let array = [...cartList]
-            setCarList(array)
-        } else {
-            setCarList([...cartList, item ])
+export const CartContextProvider = ({ children }) => {
+
+    const [cartList, setCartList] = useState([])
+
+    function agregarAlCarrito (items) {
+
+        const indice = cartList.findIndex(i => i.id === items.id)
+
+        if (indice > -1) {
+
+            const cantidadVieja=cartList[indice].cantidad
+            let cantidadNueva= cantidadVieja + items.cantidad
+            cartList[indice].cantidad = cantidadNueva
+            let arrAux = [...cartList]
+            setCartList(arrAux)
+
+        }else{
+            setCartList([...cartList, items])
         }
+
     }
 
-    function vaciarCarrito(){
-        setCarList([])
+    function removerDelCarrito(params) {
+        
+    }
+
+    function vaciarCarrito () {
+        setCartList([])
     }
 
     return (
-        <CartContext.Provider value={{cartList,agregarAlCarrito,vaciarCarrito}} >
+        <CartContext.Provider value={{
+            cartList,
+            agregarAlCarrito,
+            vaciarCarrito
+        }}>
             {children}
         </CartContext.Provider>
     )
 }
-
-export default CartContextProvider

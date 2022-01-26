@@ -1,34 +1,39 @@
-import React, {  useState, useContext } from 'react'
-import './ItemDetail.css'
-import {Card} from 'react-bootstrap'
+import { useContext } from 'react';
+import { useState } from 'react'
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../CartContext/CartContext';
 import ItemCount from '../ItemCount'
-import TerminarCompra from '../TerminarCompra/TerminarCompra'
-import { CartContext } from '../CartContext/CartContext'
+import './ItemDetail.css';
 
+function ItemDetail({ producto }) { 
 
-const ItemDetail = ({prop}) => {
-    const { agregarAlCarrito } = useContext(CartContext)
-    const [boolean,setBoolean]= useState(true)
+    const { cartList, agregarAlCarrito } = useCartContext()
+    
+    const [show, setShow] = useState(true)
 
+    const onAdd = (counter) => {
 
-    function add ({prod}){
-        setBoolean(!boolean)
-        agregarAlCarrito({...prod, cantidad : prod})
+        setShow(false)
+        agregarAlCarrito({...producto, cantidad: counter})
+        console.log(cartList)
     }
 
     return (
-        <div >
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={prop.img} />
-            <Card.Body>
-                <Card.Title>{prop.nombre}</Card.Title>
-                <Card.Text>{prop.descp}</Card.Text>
-                <Card.Text>Precio: ${prop.precio}</Card.Text>
-                {boolean ? <ItemCount item={prop} add={add} />
-                    :     <TerminarCompra add={add}/>}
-            </Card.Body>
-            </Card>
-       </div>
+        <div className='divDetail'>
+            <img src={producto.img} alt={producto.nombre} className='imgDetail'/>
+            <div>
+                <h2>{producto.nombre}</h2>
+                <p className='pDescripcionDetail'>{producto.descripcion}</p>
+                <p className='pPatronDetail'>{producto.patron}</p>
+                <h4 className='precioDetail'>Precio: ${producto.precio}</h4>
+                { show ? <ItemCount stock={producto.stock} onAdd={onAdd}/> : 
+                <div className='divButtonsDetail'>
+                    <Link to='/'><Button variant="outline-dark" className='buttonSeguirCompra'>Seguir comprando</Button></Link>
+                    <Link to='/cart'><Button variant="dark" className='buttonTerminarCompra'>Terminar compra</Button></Link>
+                </div>}
+            </div>
+        </div>
     )
 }
 

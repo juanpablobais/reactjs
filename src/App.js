@@ -7,11 +7,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './component/Cart/Cart';
 import Form from './component/Cart/Form';
 import InicioLogo from './component/InicioLogo/InicioLogo';
+import { CartContextProvider } from './component/CartContext/CartContext';
 
 const App = () => {
 
     return (
         <div className='hooks-app' >
+        <CartContextProvider>
             <BrowserRouter>
                 <NavMenu />
                 <Routes>
@@ -23,6 +25,7 @@ const App = () => {
                     <Route exact path='/form' element={<Form />} />
                 </Routes>
             </BrowserRouter>
+        </CartContextProvider>
 
         </div >
     )
